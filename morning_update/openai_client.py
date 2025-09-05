@@ -14,7 +14,7 @@ def generate_text(prompt: str) -> str:
 Structure the monologue as follows:
 
 1. Greeting: Start with a warm and welcoming greeting.
-2. Weather Summary: Describe the day’s weather, infusing the chosen tone (e.g., funny, serious, etc.) to make it engaging.
+2. Weather Summary: Describe the day’s weather and name EXPLICITLY the city, infusing the chosen tone (e.g., funny, serious, etc.) to make it engaging.
 3. News Headlines: Present each headline in the chosen tone, followed by a summary of the headline to give the listener a deeper insight into the headline.
 4. Closing: Wrap up with a concluding remark that leaves the reader with a smile, positive thought, or playful nudge.
 

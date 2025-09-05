@@ -51,6 +51,7 @@ def get_weather_forecast(city: str):
             precipitation_type = precipitation.get("TYPE", None)
         
         return {
+            "name": place_data[0]["name"],
             "summary": summary,
             "temperature": temperature,
             "precipitation_total": precipitation_total,

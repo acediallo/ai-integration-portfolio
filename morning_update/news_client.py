@@ -9,9 +9,9 @@ NEWSAPI_TOP_HEADLINES_URL = "https://newsapi.org/v2/top-headlines"
 
 
 
-def get_news_headlines () :
+def get_news_headlines (source: str):
     headline_articles = []
-    newsapi_url_params = {"country" : "ca",
+    newsapi_url_params = {"country" : source,
                         #"pageSize" : 5,
                         }
     newsapi_headers = {
@@ -30,18 +30,23 @@ def get_news_headlines () :
         print("news"+"*" * 20)
         print(data.keys())  #debugging line to see the keys in the response
         print("*" * 20)
-        print(data["articles"][0])  #debugging line to see the first article in the response
-        print("*" * 20)
-        print(len(data["articles"]))  #debugging line to see how many articles were returned
+        #print(data["articles"][0])  #debugging line to see the first article in the response
+        #print("*" * 20)
+        #print(len(data["articles"]))  #debugging line to see how many articles were returned
         
         #now let's retrieve list of articles with only title and description
-        for article in data["articles"]: 
-            headline_articles.append({
-                "title": article.get("title","No Title"), #use get method to avoid KeyError if key is missing
-                "description":article.get("description","No Description")
-                })
+        if data.get("articles") is None:
+            print("No articles found in the response")
+            return []
+        else:
+            print(f"Found {len(data['articles'])} articles")
+            for article in data["articles"]: 
+                headline_articles.append({
+                    "title": article.get("title","No Title"), #use get method to avoid KeyError if key is missing
+                    "description":article.get("description","No Description")
+                    })
 
-        return headline_articles 
+            return headline_articles 
 
 
     except requests.exceptions.ConnectionError:

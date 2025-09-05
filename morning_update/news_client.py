@@ -1,4 +1,5 @@
 # In this task we'll use the newsapi.org API to fetch the most recent news headlines.
+# API docs https://newsapi.org/docs/endpoints/top-headlines
 # We plan to include these headlines in the OpenAI prompt later, so we'll need the title and a short description for each of the items.
 
 import requests
@@ -10,7 +11,7 @@ NEWSAPI_TOP_HEADLINES_URL = "https://newsapi.org/v2/top-headlines"
 
 def get_news_headlines () :
     headline_articles = []
-    newsapi_url_params = {"country" : "us",
+    newsapi_url_params = {"country" : "ca",
                         #"pageSize" : 5,
                         }
     newsapi_headers = {
@@ -26,7 +27,7 @@ def get_news_headlines () :
         
         #print(response.status_code) #debugging line to see the status code
         #print(response.json())  #debugging line to see the full response
-        print("*" * 20)
+        print("news"+"*" * 20)
         print(data.keys())  #debugging line to see the keys in the response
         print("*" * 20)
         print(data["articles"][0])  #debugging line to see the first article in the response

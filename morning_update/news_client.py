@@ -7,11 +7,12 @@ from config import API_KEY_NEWSAPI
 
 NEWSAPI_TOP_HEADLINES_URL = "https://newsapi.org/v2/top-headlines"
 
+NUM_HEADLINES = 3
+SOURCE_COUNTRY_CODE = "us"  # Change to your preferred country code
 
-
-def get_news_headlines (source: str):
+def get_news_headlines () -> list:
     headline_articles = []
-    newsapi_url_params = {"country" : source,
+    newsapi_url_params = {"country" : SOURCE_COUNTRY_CODE,
                         #"pageSize" : 5,
                         }
     newsapi_headers = {
@@ -46,7 +47,7 @@ def get_news_headlines (source: str):
                     "description":article.get("description","No Description")
                     })
 
-            return headline_articles 
+            return headline_articles[:NUM_HEADLINES]  #return only the top N headlines
 
 
     except requests.exceptions.ConnectionError:

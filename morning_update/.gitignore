@@ -7,3 +7,6 @@ venv/
 
 # Ignore Python cache
 __pycache__/
+
+# Ignore floder for generated tts mp3 files
+output/

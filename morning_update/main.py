@@ -29,8 +29,9 @@ if __name__ == "__main__":
         check_data_availability(weather, headlines_list)
                 
         # Generate and display the update
-        update_message = generate_update(weather, headlines_list)
-        print(update_message)
+        update_content = generate_update(weather, headlines_list)
+        update_message = update_content["text"]
+        print(f"Following is the generated update which costs ${update_content['cost']}: {update_message}")
 
         # Convert the update text to speech and save as MP3
         mp3_path = text_to_speech(update_message, voice="fable")

@@ -9,8 +9,17 @@ from config import API_KEY_OPENAI
 # Initialize OpenAI client
 client = OpenAI(api_key=API_KEY_OPENAI)
 
+# Function to calculate cost based on tokens used
+def calculate_cost(input_tokens_used: int, output_tokens_used: int) -> float:
+    input_price = 0.15e-3 # Example cost per 1K tokens for GPT-4o-mini
+    output_price = 0.6e-3 # Example cost per 1K tokens for GPT-4o-mini
+    input_cost = input_tokens_used * input_price / 1000
+    output_cost = output_tokens_used * output_price / 1000
+    return input_cost + output_cost
+
+
 # Function to generate the morning update text
-def generate_update(weather, headlines: list ) -> str:
+def generate_update(weather, headlines: list ) -> object:
     """
     Generates text using OpenAI GPT model.
     """
@@ -36,15 +45,27 @@ def generate_update(weather, headlines: list ) -> str:
     Generate the text as specified in the system prompt, following the structure of greeting,
     weather summary, headlines, and a closing remark.
     '''
-
-    response = client.chat.completions.create(
-        model="gpt-4o-mini",  # lighter, cheaper model (good for summaries/updates)
-        messages=[
-            {"role": "system", "content": system_message},
-            {"role": "user", "content": user_message},
-        ],
-    )
-    return response.choices[0].message.content
+    try:
+        response = client.chat.completions.create(
+            model="gpt-4o-mini",  # lighter, cheaper model (good for summaries/updates)
+            messages=[
+                {"role": "system", "content": system_message},
+                {"role": "user", "content": user_message},
+            ],
+            max_completion_tokens=500,
+            temperature=0.7,
+        )
+        
+        input_tokens_used = response.usage.prompt_tokens
+        output_tokens_used = response.usage.completion_tokens
+        
+        return {
+            "text": response.choices[0].message.content,
+            "tokens_used": input_tokens_used + output_tokens_used,
+            "cost": calculate_cost(input_tokens_used, output_tokens_used)
+            }
+    except Exception as e:
+        return{"text": "", "tokens_used": 0, "finish_reason": response.choices[0].finish_reason, "cost": 0.0, "error": str(e)}
 
 
 

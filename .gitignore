@@ -1,0 +1,12 @@
+# Ignore all virtual environments in any project
+venv/
+env/
+.env
+
+# Ignore Python artifacts
+__pycache__/
+*.pyc
+
+# Ignore Cursor & VS Code settings
+.cursor/
+.vscode/

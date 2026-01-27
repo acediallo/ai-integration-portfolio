@@ -10,3 +10,8 @@ __pycache__/
 # Ignore Cursor & VS Code settings
 .cursor/
 .vscode/
+
+#some files to ignore
+morning_update/openai_convo.py
+docs/
+demo/

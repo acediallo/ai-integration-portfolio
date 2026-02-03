@@ -1,0 +1,51 @@
+{
+  "template_id": "behind_scenes_v1",
+  "name": "Behind-the-Scenes Story",
+  "description": "Share chef stories, ingredient sourcing, recipe origins",
+  "category": "restaurant",
+  "version": "1.0",
+  "prompt_template": "Write a behind-the-scenes social media post for a restaurant. Story topic: {story_topic}. Key detail: {key_detail}. Connection to menu: {connection_to_menu}. Restaurant values: {restaurant_values}. Chef name: {chef_name}. Use a storytelling narrative, a personal human touch, an educational element, showcase brand values, and use authentic emojis (e.g. 👨‍🍳, 🌾, 📖).",
+  "variables": [
+    {
+      "name": "story_topic",
+      "type": "string",
+      "required": true,
+      "description": "Main topic of the behind-the-scenes story",
+      "example": "ingredient sourcing"
+    },
+    {
+      "name": "key_detail",
+      "type": "string",
+      "required": true,
+      "description": "One standout detail to highlight",
+      "example": "local farm partnership"
+    },
+    {
+      "name": "connection_to_menu",
+      "type": "string",
+      "required": true,
+      "description": "How this story ties to a dish or the menu",
+      "example": "our seasonal risotto"
+    },
+    {
+      "name": "restaurant_values",
+      "type": "string",
+      "required": true,
+      "description": "Values or mission to convey",
+      "example": "farm-to-table, sustainability"
+    },
+    {
+      "name": "chef_name",
+      "type": "string",
+      "required": true,
+      "description": "Name of the chef or team member",
+      "example": "Chef Marco"
+    }
+  ],
+  "output_specs": {
+    "target_length": "150-200 words",
+    "tone": "storytelling, authentic",
+    "includes": ["emoji", "hashtags", "call-to-action"]
+  },
+  "created_date": "2026-02-02"
+}

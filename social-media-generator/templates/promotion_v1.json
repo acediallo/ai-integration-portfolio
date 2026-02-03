@@ -1,0 +1,51 @@
+{
+  "template_id": "promotion_v1",
+  "name": "Limited-Time Promotion",
+  "description": "Drive urgency for specials and deals",
+  "category": "restaurant",
+  "version": "1.0",
+  "prompt_template": "Write a social media post for a limited-time restaurant promotion. Offer type: {offer_type}. Discount/details: {discount_details}. Timeframe: {timeframe}. Target audience: {target_audience}. Restaurant name: {restaurant_name}. Use urgency language (limited time, today only), scarcity cues (while supplies last), a clear savings message, a strong CTA, and deal-focused emojis (e.g. 🚨, ⏰, 💥).",
+  "variables": [
+    {
+      "name": "offer_type",
+      "type": "string",
+      "required": true,
+      "description": "Type of promotion (e.g. happy hour, BOGO)",
+      "example": "Happy Hour"
+    },
+    {
+      "name": "discount_details",
+      "type": "string",
+      "required": true,
+      "description": "Specific discount or deal details",
+      "example": "50% off appetizers"
+    },
+    {
+      "name": "timeframe",
+      "type": "string",
+      "required": true,
+      "description": "When the offer is valid",
+      "example": "Today only, 4-7 PM"
+    },
+    {
+      "name": "target_audience",
+      "type": "string",
+      "required": true,
+      "description": "Who the promotion is for",
+      "example": "dine-in guests"
+    },
+    {
+      "name": "restaurant_name",
+      "type": "string",
+      "required": true,
+      "description": "Name of the restaurant",
+      "example": "Bella Kitchen"
+    }
+  ],
+  "output_specs": {
+    "target_length": "100-150 words",
+    "tone": "urgent, exciting",
+    "includes": ["emoji", "hashtags", "call-to-action"]
+  },
+  "created_date": "2026-02-02"
+}

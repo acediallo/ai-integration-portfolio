@@ -1,0 +1,51 @@
+{
+  "template_id": "customer_review_v1",
+  "name": "Customer Review Feature",
+  "description": "Share customer testimonials and experiences",
+  "category": "restaurant",
+  "version": "1.0",
+  "prompt_template": "Write a social media post featuring a customer review. Customer name: {customer_name}. Dish they reviewed: {dish_reviewed}. Their testimonial quote: \"{testimonial_quote}\". Visit context: {visit_context}. Restaurant name: {restaurant_name}. Use an authentic, warm tone; include the quoted testimonial; invite others to visit; use community-building language; and add appreciation emojis (e.g. ❤️, ⭐, 🙏).",
+  "variables": [
+    {
+      "name": "customer_name",
+      "type": "string",
+      "required": true,
+      "description": "Name of the customer (or pseudonym)",
+      "example": "Sarah M."
+    },
+    {
+      "name": "dish_reviewed",
+      "type": "string",
+      "required": true,
+      "description": "Dish or item the customer reviewed",
+      "example": "Grilled Salmon"
+    },
+    {
+      "name": "testimonial_quote",
+      "type": "string",
+      "required": true,
+      "description": "Direct quote from the customer",
+      "example": "Best salmon I've ever had!"
+    },
+    {
+      "name": "visit_context",
+      "type": "string",
+      "required": true,
+      "description": "Context of the visit (e.g. date night, brunch)",
+      "example": "weekend brunch"
+    },
+    {
+      "name": "restaurant_name",
+      "type": "string",
+      "required": true,
+      "description": "Name of the restaurant",
+      "example": "Harbor Bistro"
+    }
+  ],
+  "output_specs": {
+    "target_length": "120-180 words",
+    "tone": "authentic, warm",
+    "includes": ["emoji", "hashtags", "call-to-action"]
+  },
+  "created_date": "2026-02-02"
+}

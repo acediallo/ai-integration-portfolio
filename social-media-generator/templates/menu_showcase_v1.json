@@ -1,0 +1,51 @@
+{
+  "template_id": "menu_showcase_v1",
+  "name": "Menu Item Showcase",
+  "description": "Highlight a signature dish or daily special",
+  "category": "restaurant",
+  "version": "1.0",
+  "prompt_template": "Write an Instagram-style post for a restaurant. Highlight the dish: {dish_name}. Key ingredient to emphasize: {key_ingredient}. Price point: {price_point}. Restaurant vibe: {restaurant_vibe}. Unique feature or benefit: {unique_feature}. Use appetizing sensory language, include 2-3 food emojis, state a clear benefit/feature, end with a call-to-action (e.g. visit today, order now), and suggest 3-5 relevant hashtags.",
+  "variables": [
+    {
+      "name": "dish_name",
+      "type": "string",
+      "required": true,
+      "description": "Name of the dish to showcase",
+      "example": "Truffle Carbonara"
+    },
+    {
+      "name": "key_ingredient",
+      "type": "string",
+      "required": true,
+      "description": "Main ingredient to highlight",
+      "example": "black truffle"
+    },
+    {
+      "name": "price_point",
+      "type": "string",
+      "required": true,
+      "description": "Price or price range for the dish",
+      "example": "$18"
+    },
+    {
+      "name": "restaurant_vibe",
+      "type": "string",
+      "required": true,
+      "description": "Atmosphere or style of the restaurant",
+      "example": "cozy Italian bistro"
+    },
+    {
+      "name": "unique_feature",
+      "type": "string",
+      "required": true,
+      "description": "What makes this dish or experience special",
+      "example": "house-made pasta"
+    }
+  ],
+  "output_specs": {
+    "target_length": "150-200 words",
+    "tone": "engaging, appetizing",
+    "includes": ["emoji", "hashtags", "call-to-action"]
+  },
+  "created_date": "2026-02-02"
+}

@@ -1,0 +1,7 @@
+.pytest_cache/
+data/*.db
+data/*.csv
+logs/*.log
+.DS_Store
+*.code-workspace
+.env

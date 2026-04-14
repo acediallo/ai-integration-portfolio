@@ -56,16 +56,32 @@ OPENAI_API_KEY: str = os.getenv("OPENAI_API_KEY", "").strip()
 MODEL_NAME: str = os.getenv("MODEL_NAME", "gpt-4o-mini")
 """Model identifier for chat completions."""
 
-# Cost per token (USD) - approximate for gpt-4o-mini
+# Token cost configuration (USD).
+#
+# The application primarily uses per-1K token constants for cost calculations
+# while also keeping per-token values for compatibility.
 COST_PER_INPUT_TOKEN: float = float(os.getenv("COST_PER_INPUT_TOKEN", "0.00000015"))
+"""Approximate cost per input token in USD."""
+
 COST_PER_OUTPUT_TOKEN: float = float(os.getenv("COST_PER_OUTPUT_TOKEN", "0.0000006"))
+"""Approximate cost per output token in USD."""
+
+INPUT_COST_PER_1K_TOKENS: float = float(
+    os.getenv("INPUT_COST_PER_1K_TOKENS", str(COST_PER_INPUT_TOKEN * 1000.0))
+)
+"""Cost per 1,000 input tokens in USD."""
+
+OUTPUT_COST_PER_1K_TOKENS: float = float(
+    os.getenv("OUTPUT_COST_PER_1K_TOKENS", str(COST_PER_OUTPUT_TOKEN * 1000.0))
+)
+"""Cost per 1,000 output tokens in USD."""
 
 
 # ---------------------------------------------------------------------------
 # Budget
 # ---------------------------------------------------------------------------
 
-DAILY_BUDGET_USD: float = float(os.getenv("DAILY_BUDGET", "1.00"))
+DAILY_BUDGET_USD: float = float(os.getenv("DAILY_BUDGET", "2.00"))
 """Maximum allowed spend per day in USD."""
 
 
